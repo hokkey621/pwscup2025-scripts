@@ -2,7 +2,6 @@ import re
 import os
 import json
 from decimal import Decimal, InvalidOperation
-import argparse
 
 import pandas as pd
 
@@ -354,13 +353,3 @@ class CiDataFrame(BiDataFrame):
             # except*ブロックで予期せぬエラーが発生した時
             print(f"フォーマットの修正を試みましたが失敗しました:")
             raise e
-        
-    
-        
-
-if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("path")
-    args = ap.parse_args()
-
-    BiDataFrame.read_csv(args.path)
