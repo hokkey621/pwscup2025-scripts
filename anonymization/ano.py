@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys
+import sys, os
 import argparse
 import random
 from typing import List
@@ -9,6 +9,10 @@ from typing import List
 import numpy as np
 import pandas as pd
 
+# モジュールの相対参照制限を強制的に回避
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(current_dir, '..', 'util'))
+from pws_data_format import BiDataFrame, CiDataFrame
 
 def mutate_categorical(series: pd.Series, p: float) -> pd.Series:
     """非空セルのみ、確率 p で列内の“別の値”に置き換え。"""
@@ -153,8 +157,8 @@ def main():
         np.random.seed(args.seed)
         random.seed(args.seed)
 
-    # 文字列で読み込み（空欄を保持）
-    df = pd.read_csv(args.input_csv, dtype=str, keep_default_na=False)
+    # Biを読み込み
+    df = BiDataFrame.read_csv(args.input_csv)
 
     # ---- カテゴリ列のランダム置換 ----
     if "GENDER" in df.columns:
@@ -190,7 +194,8 @@ def main():
     process_float_with_blanks(df, "mean_bmi",   lo=-6.0,  hi=6.0,  decimals=2)
 
     # ---- 出力 ----
-    df.to_csv(args.output_csv, index=False)
+    Ci_df = CiDataFrame(df)
+    Ci_df.to_csv(args.output_csv)
 
 
 if __name__ == "__main__":
