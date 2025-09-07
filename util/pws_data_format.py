@@ -176,7 +176,8 @@ class BiDataFrame(pd.DataFrame):
                 raise ExceptionGroup("仕様に反する列が存在します", errors)
 
     @classmethod
-    def check_format(cls, df:pd.DataFrame):
+    def check_format(cls, in_df:pd.DataFrame):
+        df = in_df.astype(str)
         errors = []
 
         try:
@@ -248,6 +249,7 @@ class CiDataFrame(BiDataFrame):
 
     @classmethod
     def fix_num_columns(cls, df:pd.DataFrame):
+        df = df.astype(str)
         target_columns = df.columns
         num_fixes: list[tuple[int, str, str, str, str]] = []  # (row, col, original, fixed, reason)
 
