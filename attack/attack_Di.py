@@ -116,7 +116,7 @@ class TopConfAttack(Attack_Di_Base):
         super().infer(path_to_Ai_csv)
 
         pred = self.xgbt_model.predict(xgb.DMatrix(self.X))
-        confidence = pd.DataFrame(pred-self.y, columns=["conf"]).abs()
+        confidence = (-1) * pd.DataFrame(pred-self.y, columns=["conf"]).abs() 
         inferred = pd.DataFrame(0, index=range(pred.shape[0]), columns=["inferred"])
         inferred.loc[confidence["conf"].nlargest(10000).index, "inferred"] = 1
         self.inferred = inferred
