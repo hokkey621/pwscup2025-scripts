@@ -122,7 +122,7 @@ class BiDataFrame(pd.DataFrame):
         for col, col_spec in cls.COL_SPECS.items():
             if col not in target_columns:
                 # フォーマットをチェックしているデータにあるべき列がない場合はエラー
-                raise ColumnsError("列がありません: {col}")
+                raise ColumnsError(f"列がありません: {col}")
 
             # 値の前後空白除去
             raw_vals = df[col].map(lambda x: x.strip() if isinstance(x, str) else x)
