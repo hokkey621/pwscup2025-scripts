@@ -52,10 +52,10 @@ python anonymization/ano.py data/HI_10k.csv HI_10k_anon.csv
 値域確認スクリプト check_csv.py を使い、生成した匿名データが適切な値域内にあることを確認します。
 
 ```bash
-python util/check_csv.py HI_10k_anon.csv data/pre_columns_range.json
+python util/check_csv.py HI_10k_anon.csv data/columns_range.json.json
 ```
 
-##### 値域定義ファイル（pre_columns_range.json）の内容
+##### 値域定義ファイル（columns_range.json）の内容
 各項目について以下が定義されています：
 - **type**: データタイプ（number/category/date）
 - **min/max**: 数値項目の最小値・最大値
@@ -187,7 +187,7 @@ python attack/attack_Di.py data/HI_100K.csv HI_10k_anon.json -o attack_di_result
 python anonymization/ano.py data/HI_10k.csv HI_10k_anon.csv
 
 # Step 1-1: データ値域の確認
-python util/check_csv.py HI_10k_anon.csv data/pre_columns_range.json
+python util/check_csv.py HI_10k_anon.csv data/columns_range.json
 
 # Step 1-2: 有用性評価
 python evaluation/eval_all.py data/HI_10k.csv HI_10k_anon.csv
@@ -276,7 +276,7 @@ pwscup2025-scripts/
 ├── data/
 │   ├── HI_100K.csv          # データAi相当
 │   ├── HI_10k.csv           # データBi相当
-│   └── pre_columns_range.json # 値域定義
+│   └── columns_range.json   # 値域定義（本戦用）
 ├── anonymization/
 │   ├── ano.py               # 匿名加工スクリプト
 │   └── gen_Di.py            # BiとCi混合データでのDi作成スクリプト

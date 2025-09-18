@@ -14,7 +14,7 @@ def get_col_specs():
     # 現在のモジュールファイルのディレクトリを取得
     module_dir = os.path.abspath(os.path.dirname(__file__))
 
-    json_path = os.path.join(module_dir, "..", "data", "pre_columns_range.json")
+    json_path = os.path.join(module_dir, "..", "data", "columns_range.json")
 
     with open(json_path, encoding='utf-8') as f:
         j = json.load(f)
@@ -169,7 +169,7 @@ class BiDataFrame(pd.DataFrame):
                         errors.append(ColSpecError(idx+1, col, val, f"{min_dt.strftime('%Y-%m-%d')}〜{max_dt.strftime('%Y-%m-%d')}の範囲外"))
 
             else:
-                # デバッグ用。pre_columns_range.jsonを編集した場合に、表示される可能性あり
+                # デバッグ用。columns_range.jsonを編集した場合に、表示される可能性あり
                 print(f"警告: 列 '{col}' のタイプ '{col_type}' は未対応。スキップします。")
 
             if errors:
