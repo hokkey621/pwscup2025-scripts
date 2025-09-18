@@ -123,7 +123,7 @@ def flip_flag_with_prob(df: pd.DataFrame, col: str, p: float) -> None:
 
 def process_age_add(df: pd.DataFrame, col: str = "AGE",
                     lo: int = -2, hi: int = 2,
-                    min_age: int = 0, max_age: int = 120) -> None:
+                    min_age: int = 2, max_age: int = 110) -> None:
     """AGE列：非空のみ整数ノイズ（[lo,hi]）を加算し、[min_age,max_age]でクランプ。
        空欄はそのまま。"""
     if col not in df.columns:
@@ -165,7 +165,7 @@ def main():
         df["ETHNICITY"] = mutate_categorical(df["ETHNICITY"], p=0.13)
 
     # ---- AGE（整数ノイズ; 空欄はそのまま）----
-    process_age_add(df, col="AGE", lo=-2, hi=2, min_age=0, max_age=120)
+    process_age_add(df, col="AGE", lo=-2, hi=2, min_age=2, max_age=110)
 
     # ---- 整数ノイズ付加 ----
     process_int_column(df, "encounter_count",  lo=-10, hi=10)
