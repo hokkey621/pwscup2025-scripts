@@ -30,8 +30,7 @@ def mutate_categorical(series: pd.Series, p: float) -> pd.Series:
     return s
 
 
-def process_int_column(df: pd.DataFrame, col: str, lo: int, hi: int, 
-                      min_val: int = None, max_val: int = None) -> None:
+def process_int_column(df: pd.DataFrame, col: str, lo: int, hi: int) -> None:
     """整数列：空欄個数を記録→非空に乱数加算＆クランプ→空欄は範囲で埋め→
        最後に元の空欄個数ぶんをランダムに空欄化。"""
     if col not in df.columns:
@@ -46,13 +45,8 @@ def process_int_column(df: pd.DataFrame, col: str, lo: int, hi: int,
         df[col] = s_raw
         return
 
-    # 指定されたmin/max値を使用、なければデータから算出
-    if min_val is not None and max_val is not None:
-        vmin = min_val
-        vmax = max_val
-    else:
-        vmin = int(np.floor(non_na.min()))
-        vmax = int(np.ceil(non_na.max()))
+    vmin = int(np.floor(non_na.min()))
+    vmax = int(np.ceil(non_na.max()))
 
     delta = np.random.randint(lo, hi + 1, size=len(s_num))
     s_num = s_num.add(delta).clip(lower=vmin, upper=vmax)
@@ -68,8 +62,7 @@ def process_int_column(df: pd.DataFrame, col: str, lo: int, hi: int,
     df[col] = out
 
 
-def process_float_add(df: pd.DataFrame, col: str, lo: float, hi: float, 
-                     decimals: int = 2, min_val: float = None, max_val: float = None) -> None:
+def process_float_add(df: pd.DataFrame, col: str, lo: float, hi: float, decimals: int = 2) -> None:
     """浮動小数点列：非空のみ乱数加算＆クランプ。空欄はそのまま。"""
     if col not in df.columns:
         return
@@ -80,21 +73,15 @@ def process_float_add(df: pd.DataFrame, col: str, lo: float, hi: float,
     if non_na.empty:
         return
 
-    # 指定されたmin/max値を使用、なければデータから算出
-    if min_val is not None and max_val is not None:
-        vmin = min_val
-        vmax = max_val
-    else:
-        vmin = float(non_na.min())
-        vmax = float(non_na.max())
+    vmin = float(non_na.min())
+    vmax = float(non_na.max())
     delta = np.random.uniform(lo, hi, size=len(s_num))
     s_num = s_num.add(delta).clip(lower=vmin, upper=vmax).round(decimals)
 
     df[col] = s_num.where(~is_blank, "").astype(object)
 
 
-def process_float_with_blanks(df: pd.DataFrame, col: str, lo: float, hi: float, 
-                             decimals: int = 2, min_val: float = None, max_val: float = None) -> None:
+def process_float_with_blanks(df: pd.DataFrame, col: str, lo: float, hi: float, decimals: int = 2) -> None:
     """浮動小数点列：空欄個数を保存→非空にノイズ→クランプ→空欄は[min,max]で埋め→
        最後に元の空欄個数ぶんランダムに空欄化。"""
     if col not in df.columns:
@@ -108,13 +95,8 @@ def process_float_with_blanks(df: pd.DataFrame, col: str, lo: float, hi: float,
     if non_na.empty:
         return
 
-    # 指定されたmin/max値を使用、なければデータから算出
-    if min_val is not None and max_val is not None:
-        vmin = min_val
-        vmax = max_val
-    else:
-        vmin = float(non_na.min())
-        vmax = float(non_na.max())
+    vmin = float(non_na.min())
+    vmax = float(non_na.max())
     delta = np.random.uniform(lo, hi, size=len(s_num))
     s_num = s_num.add(delta).clip(lower=vmin, upper=vmax)
 
@@ -189,13 +171,13 @@ def main():
     # ---- AGE（整数ノイズ; 空欄はそのまま）----
     process_age_add(df, col="AGE", lo=-2, hi=2, min_age=2, max_age=110)
 
-    # ---- 整数ノイズ付加 (columns_range.jsonの値域に従う) ----
-    process_int_column(df, "encounter_count",   lo=-10, hi=10, min_val=4,    max_val=1211)
-    process_int_column(df, "num_procedures",    lo=-10, hi=10, min_val=0,    max_val=2442)
-    process_int_column(df, "num_medications",   lo=-5,  hi=5,  min_val=0,    max_val=7195)
-    process_int_column(df, "num_immunizations", lo=-3,  hi=3,  min_val=0,    max_val=40)
-    process_int_column(df, "num_allergies",     lo=-2,  hi=2,  min_val=0,    max_val=17)
-    process_int_column(df, "num_devices",       lo=-5,  hi=5,  min_val=0,    max_val=160)
+    # ---- 整数ノイズ付加 ----
+    process_int_column(df, "encounter_count",  lo=-10, hi=10)
+    process_int_column(df, "num_procedures",   lo=-10, hi=10)
+    process_int_column(df, "num_medications",  lo=-5,  hi=5)
+    process_int_column(df, "num_immunizations",lo=-3,  hi=3)
+    process_int_column(df, "num_allergies",    lo=-2,  hi=2)
+    process_int_column(df, "num_devices",      lo=-5,  hi=5)
 
     # ---- *_flag は確率で反転 ----
     flip_flag_with_prob(df, "asthma_flag",     p=0.14)
@@ -203,13 +185,13 @@ def main():
     flip_flag_with_prob(df, "obesity_flag",    p=0.16)
     flip_flag_with_prob(df, "depression_flag", p=0.17)
 
-    # ---- 実数ノイズ付加 (columns_range.jsonの値域に従う) ----
-    process_float_add(df, "mean_systolic_bp",   lo=-10.0, hi=10.0, decimals=2, min_val=37.22,  max_val=172.85)
-    process_float_add(df, "mean_diastolic_bp",  lo=-8.0,  hi=8.0,  decimals=2, min_val=1.78,   max_val=126.17)
-    process_float_add(df, "mean_weight",        lo=-3.0,  hi=3.0,  decimals=2, min_val=4.55,   max_val=196.7)
+    # ---- 実数ノイズ付加 ----
+    process_float_add(df, "mean_systolic_bp",   lo=-10.0, hi=10.0, decimals=2)
+    process_float_add(df, "mean_diastolic_bp",  lo=-8.0,  hi=8.0,  decimals=2)
+    process_float_add(df, "mean_weight",        lo=-3.0,  hi=3.0,  decimals=2)
 
     # ---- 実数ノイズ付加（空欄処理込み) ----
-    process_float_with_blanks(df, "mean_bmi",   lo=-6.0,  hi=6.0,  decimals=2, min_val=2.97,   max_val=73.58)
+    process_float_with_blanks(df, "mean_bmi",   lo=-6.0,  hi=6.0,  decimals=2)
 
     # ---- 出力 ----
     Ci_df = CiDataFrame(df)
