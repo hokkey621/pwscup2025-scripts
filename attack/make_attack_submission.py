@@ -13,7 +13,7 @@ import numpy as np
 from attack_Di import TopConfAttack
 
 # チーム数と行数を定義
-NUM_TEAMS = 22
+NUM_TEAMS = 24
 NUM_RAWS = int(1e5)
 
 # コマンドライン引数の読み込み
