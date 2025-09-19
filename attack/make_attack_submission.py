@@ -13,7 +13,7 @@ import numpy as np
 from attack_Di import TopConfAttack
 
 # チーム数と行数を定義
-NUM_TEAMS = 22
+NUM_TEAMS = 24
 NUM_RAWS = int(1e5)
 
 # コマンドライン引数の読み込み
@@ -32,7 +32,7 @@ if not os.path.isdir(args.indir):
 if os.path.exists(args.outdir) and not args.overwrite:
     raise FileExistsError(f"{args.outdir}はすでに存在します。上書きする場合は-oをつけてください。")
 
-# 各チームに攻撃
+# 各チームjに攻撃
 Fi = pd.DataFrame()
 for j in range(1, NUM_TEAMS+1):
     print(j)
@@ -40,6 +40,9 @@ for j in range(1, NUM_TEAMS+1):
         print(f"The {j}th column was filled with empty because it is your team")
         Fi[f"{str(j).zfill(2)}"] = pd.DataFrame(np.nan, index=range(NUM_RAWS), columns=["inferred"])
         continue
+
+    # path_to_Ci = os.path.join(args.indir, f"D{str(j).zfill(2)}.csv")
+    # Ciも使う攻撃の場合は↑のコメントアウトを解除
     path_to_Di = os.path.join(args.indir, f"D{str(j).zfill(2)}.json")
     path_to_Ai = os.path.join(args.indir, f"A{str(j).zfill(2)}.csv")
 
