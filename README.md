@@ -13,3 +13,13 @@
 ## ![PWS Cup 2025 の基本的な流れ](PWSCUP2025flow.pdf)
 
 <img width="1050" height="567" alt="image" src="https://github.com/user-attachments/assets/859c85d5-c340-488e-bf68-3a58edc2e981" />
+
+## Codabenchでの採点環境について
+
+[Codabench](https://www.codabench.org/competitions/10160/)では[docker](https://www.docker.com/)で作られた仮想環境で採点プログラムを実行しています。
+予備選ではCodabenchのデフォルト環境`codalab/codalab-legacy:py39`([dockerhub](https://hub.docker.com/r/codalab/codalab-legacy/tags))を使用しました。
+本戦ではそのデフォルト環境をPWS CUP2025用にカスタムした`hajimeono/pws25:py39xgbt`([dockerhub](https://hub.docker.com/repository/docker/hajimeono/pws25/general))を使用しています。
+
+linux/amd64の仮想マシンにpython3.9.12をインストールした上で、いくつかのライブラリをインストールして作られています。
+これらのライブラリとそのバージョンは`codabench_libs.txt`で確認できます。
+pythonのバージョンが古いため、ライブラリのバージョンも古いです。
