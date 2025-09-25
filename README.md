@@ -21,5 +21,5 @@
 本戦ではそのデフォルト環境をPWS CUP2025用にカスタムした`hajimeono/pws25:py39xgbt`([dockerhub](https://hub.docker.com/repository/docker/hajimeono/pws25/general))を使用しています。
 
 linux/amd64の仮想マシンにpython3.9.12をインストールした上で、いくつかのライブラリをインストールして作られています。
-これらのライブラリとそのバージョンは`codabench_libs.txt`で確認できます。
+これらのライブラリとそのバージョンは[codabench_libs.txt](https://github.com/pwscup/pwscup2025-scripts/blob/0df543380d373babb5c8df23ec92c741dc4de4e6/codabench_libs.txt)で確認できます。
 pythonのバージョンが古いため、ライブラリのバージョンも古いです。
