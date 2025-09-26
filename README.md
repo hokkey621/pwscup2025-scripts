@@ -10,16 +10,15 @@
 - (8/29, 13:01) ↓の正規化方法が不適切で誤差が0になるべき入出力で誤差が0.5になる問題を修正 [PR#21](https://github.com/pwscup/pwscup2025-scripts/pull/21)
 - (8/28, 15:16) evaluation/LR_asthma_diff.py のcoefに関する採点で正規化が行われていなかったため、正規化処理を追加 [PR#19](https://github.com/pwscup/pwscup2025-scripts/pull/19)
 
-## ![PWS Cup 2025 の基本的な流れ](PWSCUP2025flow.pdf)
-
-<img width="1050" height="567" alt="image" src="https://github.com/user-attachments/assets/859c85d5-c340-488e-bf68-3a58edc2e981" />
-
-## Codabenchでの採点環境について
+## Codabenchでの採点環境について(9/26追記)
 
 [Codabench](https://www.codabench.org/competitions/10160/)では[docker](https://www.docker.com/)で作られた仮想環境で採点プログラムを実行しています。
 予備選ではCodabenchのデフォルト環境`codalab/codalab-legacy:py39`([dockerhub](https://hub.docker.com/r/codalab/codalab-legacy/tags))を使用しました。
-本戦ではそのデフォルト環境をPWS CUP2025用にカスタムした`hajimeono/pws25:py39xgbt`([dockerhub](https://hub.docker.com/repository/docker/hajimeono/pws25/general))を使用しています。
+本戦ではそのデフォルト環境をPWS CUP2025用にカスタムした`hajimeono/pws25:py313xgbt`([dockerhub](https://hub.docker.com/repository/docker/hajimeono/pws25/general))を使用しています。
 
-linux/amd64の仮想マシンにpython3.9.12をインストールした上で、いくつかのライブラリをインストールして作られています。
-これらのライブラリとそのバージョンは[codabench_libs.txt](https://github.com/pwscup/pwscup2025-scripts/blob/0df543380d373babb5c8df23ec92c741dc4de4e6/codabench_libs.txt)で確認できます。
-pythonのバージョンが古いため、ライブラリのバージョンも古いです。
+本戦用採点環境はlinux/amd64の仮想マシンにpython3.13.7をインストールした上で、いくつかのライブラリ(xgboost 3.0.5など)をインストールして作られています。
+これらのライブラリとそのバージョンは[codabench_libs.txt](https://github.com/pwscup/pwscup2025-scripts/blob/74f80637c41e08a67bdd971887ad4231c11120fa/codabench_libs.txt)で確認できます。
+
+## ![PWS Cup 2025 の基本的な流れ](PWSCUP2025flow.pdf)
+
+<img width="1050" height="567" alt="image" src="https://github.com/user-attachments/assets/859c85d5-c340-488e-bf68-3a58edc2e981" />
