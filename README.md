@@ -2,6 +2,7 @@
 
 ※ サンプルデータやサンプルコードは随時追加や更新されますので、更新日時を確認して最新版を利用するようにしてください。予備戦開始（8/20）後に追加または更新した場合はチーム代表者に連絡します。
 ## 重要な変更
+- (9/26, 09:52) Codabenchの採点環境を変更(python 3.9.12 -> 3.13.7, xgboost 2.1.4 -> 3.0.5)および環境の情報をREADME.mdに追記
 - (9/19, 09:46) Ciの自己採点用スクリプトevaluation/eval_all.pyにBi.csvとCi.csvのフォーマットチェック機能を追加 [PR#38](https://github.com/pwscup/pwscup2025-scripts/pull/38)
 - (9/19, 09:45) Ciの各列の値域確認用jsonファイルの参照先をdata/pre_columns_range.jsonからdata/columns_range.jsonに変更 [PR#39](https://github.com/pwscup/pwscup2025-scripts/pull/39)
 - (9/18, 09:54) 初心者ガイドGUIDE_FOR_BEGINNERS.mdを追加 [PR#33](https://github.com/pwscup/pwscup2025-scripts/pull/33)
