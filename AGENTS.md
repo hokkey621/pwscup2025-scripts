@@ -1,0 +1,38 @@
+# Repository Guidelines
+
+## Project Structure & Module Organization
+- `analysis/`: Exploratory analytics and model training scripts such as `stats.py`, `LR_asthma.py`, and `xgbt_train.py`. Use these when deriving new metrics from medical CSVs.
+- `evaluation/`: Scoring utilities (for example `eval_all.py`, `stats_diff.py`, `LR_asthma_diff.py`) that replicate the Codabench judging pipeline; mirror this layout when adding new evaluation modules.
+- `attack/`: Adversarial and membership-inference tooling including `attack_Ci.py`, `attack_Di.py`, and `make_attack_submission.py`. Outputs should stay under `attack/output/` or a similarly isolated folder.
+- `anonymization/`, `util/`: Reusable preprocessing helpers (`check_csv.py`, `check_and_fix_csv.py`) for validating column ranges and formatting.
+- `data/`: Reference CSVs and JSON range specifications consumed by both evaluation and analysis scripts; treat these as canonical schema samples.
+
+## Build, Test, and Development Commands
+- `python3 -m venv .venv && source .venv/bin/activate`: Prepare a local interpreter close to Codabench’s Python 3.13 environment.
+- `pip install -r codabench_libs.txt`: Synchronize dependency versions with the competition grader when needed.
+- `python3 evaluation/eval_all.py data/HI_10K.csv data/MA_10K.csv`: Run the end-to-end Ci utility score (use `-d` for verbose logs, `-f` to force scoring despite minor format issues).
+- `python3 analysis/xgbt_train.py --help`: Inspect training options before fitting new models; companion scripts usually accept similar CLI flags.
+
+## Coding Style & Naming Conventions
+- Follow PEP 8: four-space indentation, snake_case for functions and variables, and UpperCamelCase only for classes.
+- Keep CLI entry points under `if __name__ == "__main__":` and expose pure functions for reuse in notebooks or other scripts.
+- Validate input frames early, sort columns where deterministic order matters, and prefer explicit constant lists (e.g., `EXPECTED_COLUMNS`) for schema checks.
+- Use `black` (default line length 88) and `ruff` style rules if available; otherwise, align with existing formatting in the touched file.
+
+## Testing Guidelines
+- No formal test suite exists; rely on deterministic script runs using sample files (`data/HI_10K.csv`, `data/MA_10K.csv`) and check that metrics stay within expected ranges.
+- Invoke helper functions like `eval_diff_max_abs` directly during development to compare DataFrames without writing intermediate CSVs.
+- When introducing randomness, expose `--random-state` options and document default seeds to preserve reproducibility.
+- Capture noteworthy outputs (scores, warning messages) in commit notes or PR descriptions for traceability.
+
+## Commit & Pull Request Guidelines
+- Craft imperative commit titles (`Add evaluation sanity check`, `Fix attack submission path`) and keep the first line under 72 characters.
+- Link related issues or Codabench tickets in the message body and summarize metric deltas or formatted files touched.
+- Pull requests should include: problem statement, summary of changes, verification steps with concrete commands, and any follow-up tasks.
+- Request review when CI-equivalent commands (`eval_all.py`, critical analysis scripts) succeed locally; attach artifacts only when essential.
+
+## Security & Configuration Tips
+- Never commit real participant data; sanitize or synthesize minimal examples before sharing.
+- Run `python3 util/check_csv.py <file>` prior to uploading datasets to ensure column ranges remain within the published thresholds.
+- Store Codabench credentials outside the repository and document sensitive environment variables in private channels, not in version control.
+- When distributing trained models, include metadata (`attributes.feature_names`, `xgboost_version`) so validators like `validate_model_json.py` remain effective across environments.
