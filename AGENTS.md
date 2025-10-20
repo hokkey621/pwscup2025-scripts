@@ -8,10 +8,11 @@
 - `data/`: Reference CSVs and JSON range specifications consumed by both evaluation and analysis scripts; treat these as canonical schema samples.
 
 ## Build, Test, and Development Commands
-- `python3 -m venv .venv && source .venv/bin/activate`: Prepare a local interpreter close to Codabench’s Python 3.13 environment.
-- `pip install -r codabench_libs.txt`: Synchronize dependency versions with the competition grader when needed.
-- `python3 evaluation/eval_all.py data/HI_10K.csv data/MA_10K.csv`: Run the end-to-end Ci utility score (use `-d` for verbose logs, `-f` to force scoring despite minor format issues).
-- `python3 analysis/xgbt_train.py --help`: Inspect training options before fitting new models; companion scripts usually accept similar CLI flags.
+- `uv python install 3.12.11`: Install the managed interpreter compatible with `except*` and other features used in utility modules.
+- `uv sync`: Materialize `.venv/` from `pyproject.toml` / `uv.lock`; rerun after editing dependencies.
+- `uv run python evaluation/eval_all.py data/HI_10K.csv data/MA_10K.csv`: Run the end-to-end Ci utility score (`-d` for verbose logs, `-f` to force scoring despite minor format issues).
+- `uv run python analysis/xgbt_train.py --help`: Inspect training options before fitting new models; companion scripts usually accept similar CLI flags.
+- `uv run python util/check_and_fix_csv.py data/HI_10K.csv data/columns_range.json tmp.csv`: Optional pre-check to clamp out-of-range values; remove `tmp.csv` if no fixes are needed.
 
 ## Coding Style & Naming Conventions
 - Follow PEP 8: four-space indentation, snake_case for functions and variables, and UpperCamelCase only for classes.
