@@ -20,6 +20,13 @@
 - Validate input frames early, sort columns where deterministic order matters, and prefer explicit constant lists (e.g., `EXPECTED_COLUMNS`) for schema checks.
 - Use `black` (default line length 88) and `ruff` style rules if available; otherwise, align with existing formatting in the touched file.
 
+## Anonymization Experiment Workflow (template/ & method_*/)
+- ベースライン実験は `template/` をコピーして新しい手法ディレクトリ（例: `method_rankmix/`）を作成し、フォルダ外のファイルは変更しない。
+- `config/params.json` で列ごとのノイズや反転確率を管理し、`scripts/anonymize.py` に必要な処理を実装する。Bi 読み込み時は `read_bi_dataframe()` が値域クリップを行うため、特殊な前処理が必要ならここを拡張する。
+- 実験実行はリポジトリルートで `uv run python <method>/scripts/run_experiment.py --bi <Bi> --ci <out_Ci> --config <params.json> --seed <seed> --print-details --metrics-json <reports/metrics.json>` を使用し、ログは `<method>/outputs/logs/`、スコアは `<method>/reports/` に保存する。
+- 評価は `evaluation/eval_all.py` に依存するため、Bi/Ci の列名・値域が一致しない場合は `util/check_and_fix_csv.py` や `read_bi_dataframe()` のクリップ処理で事前に整形する。
+- 実験レポートは `<method>/reports/*.md` に Markdown でまとめ、生成した Ci は `<method>/outputs/ci/` に残して比較可能な状態を保つ。
+
 ## Testing Guidelines
 - No formal test suite exists; rely on deterministic script runs using sample files (`data/HI_10K.csv`, `data/MA_10K.csv`) and check that metrics stay within expected ranges.
 - Invoke helper functions like `eval_diff_max_abs` directly during development to compare DataFrames without writing intermediate CSVs.

@@ -1,0 +1,35 @@
+{
+  "categorical_swap_prob": {
+    "GENDER": 0.08,
+    "RACE": 0.1,
+    "ETHNICITY": 0.12
+  },
+  "flag_flip_prob": {
+    "asthma_flag": 0.1,
+    "stroke_flag": 0.12,
+    "obesity_flag": 0.14,
+    "depression_flag": 0.16
+  },
+  "age_noise": {
+    "lo": -2,
+    "hi": 2,
+    "min_age": 2,
+    "max_age": 110
+  },
+  "int_noise": {
+    "encounter_count": [-5, 5],
+    "num_procedures": [-4, 4],
+    "num_medications": [-3, 3],
+    "num_immunizations": [-2, 2],
+    "num_allergies": [-1, 1],
+    "num_devices": [-3, 3]
+  },
+  "float_noise": {
+    "mean_systolic_bp": 5.0,
+    "mean_diastolic_bp": 4.0,
+    "mean_weight": 2.5
+  },
+  "float_noise_with_blanks": {
+    "mean_bmi": 3.0
+  }
+}

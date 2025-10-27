@@ -1,0 +1,19 @@
+column,type,allowed_values,Ai_unexpected_values,Bi_unexpected_values,spec_min,spec_max,spec_max_decimals,Ai_min,Ai_max,Ai_max_decimals,Ai_min_violation,Ai_max_violation,Ai_decimal_violation,Bi_min,Bi_max,Bi_max_decimals,Bi_min_violation,Bi_max_violation,Bi_decimal_violation
+GENDER,category,"F, M",,,,,,,,,,,,,,,,,
+AGE,number,,,,2.0,110.0,0.0,2.0,111.0,0.0,False,True,False,2.0,111.0,0.0,False,True,False
+RACE,category,"asian, black, hawaiian, native, other, white",,,,,,,,,,,,,,,,,
+ETHNICITY,category,"hispanic, nonhispanic",,,,,,,,,,,,,,,,,
+encounter_count,number,,,,4.0,1211.0,0.0,5.0,951.0,0.0,False,False,False,6.0,859.0,0.0,False,False,False
+num_procedures,number,,,,0.0,2442.0,0.0,1.0,2120.0,0.0,False,False,False,2.0,1932.0,0.0,False,False,False
+num_medications,number,,,,0.0,7195.0,0.0,0.0,2996.0,0.0,False,False,False,0.0,2677.0,0.0,False,False,False
+num_immunizations,number,,,,0.0,40.0,0.0,0.0,38.0,0.0,False,False,False,0.0,37.0,0.0,False,False,False
+num_allergies,number,,,,0.0,17.0,0.0,0.0,15.0,0.0,False,False,False,0.0,14.0,0.0,False,False,False
+num_devices,number,,,,0.0,160.0,0.0,0.0,136.0,0.0,False,False,False,0.0,134.0,0.0,False,False,False
+asthma_flag,number,,,,0.0,1.0,0.0,0.0,1.0,0.0,False,False,False,0.0,1.0,0.0,False,False,False
+stroke_flag,number,,,,0.0,1.0,0.0,0.0,1.0,0.0,False,False,False,0.0,1.0,0.0,False,False,False
+obesity_flag,number,,,,0.0,1.0,0.0,0.0,1.0,0.0,False,False,False,0.0,1.0,0.0,False,False,False
+depression_flag,number,,,,0.0,1.0,0.0,0.0,1.0,0.0,False,False,False,0.0,1.0,0.0,False,False,False
+mean_systolic_bp,number,,,,37.22,172.85,2.0,48.92,167.6,2.0,False,False,False,68.2,160.5,2.0,False,False,False
+mean_diastolic_bp,number,,,,1.78,126.17,2.0,24.16,124.8,2.0,False,False,False,36.32,120.17,2.0,False,False,False
+mean_bmi,number,,,,2.97,73.58,2.0,6.02,73.21,2.0,False,False,False,6.68,69.62,2.0,False,False,False
+mean_weight,number,,,,4.55,196.7,2.0,5.95,173.13,2.0,False,False,False,6.95,154.73,2.0,False,False,False
