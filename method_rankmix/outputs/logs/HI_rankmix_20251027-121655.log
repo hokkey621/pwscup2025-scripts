@@ -1,0 +1,236 @@
+=== DIFF: Normalized (0-1) ===
+                      term   value_diff
+    CAT:ETHNICITY=hispanic       0.0786
+ CAT:ETHNICITY=nonhispanic      -0.0786
+              CAT:GENDER=F       0.0024
+              CAT:GENDER=M      -0.0024
+            CAT:RACE=asian      -0.0191
+            CAT:RACE=black       0.0139
+         CAT:RACE=hawaiian       0.0043
+           CAT:RACE=native       0.0119
+            CAT:RACE=other       0.0015
+            CAT:RACE=white      -0.0125
+              NUM:mean:AGE  -0.00120716
+      NUM:mean:asthma_flag -0.000257959
+  NUM:mean:depression_flag            0
+  NUM:mean:encounter_count -0.000306606
+         NUM:mean:mean_bmi -0.000609078
+NUM:mean:mean_diastolic_bp -0.000322585
+ NUM:mean:mean_systolic_bp -0.000140839
+      NUM:mean:mean_weight -0.000434575
+    NUM:mean:num_allergies  0.000950035
+      NUM:mean:num_devices -0.000271579
+NUM:mean:num_immunizations -0.000656299
+  NUM:mean:num_medications   -0.0003775
+   NUM:mean:num_procedures            0
+     NUM:mean:obesity_flag -0.000629098
+      NUM:mean:stroke_flag -0.000479887
+               NUM:q25:AGE  4.04674e-05
+       NUM:q25:asthma_flag            0
+   NUM:q25:depression_flag            0
+   NUM:q25:encounter_count    0.0092232
+          NUM:q25:mean_bmi  -0.00371822
+ NUM:q25:mean_diastolic_bp  -0.00171262
+  NUM:q25:mean_systolic_bp            0
+       NUM:q25:mean_weight -0.000151019
+     NUM:q25:num_allergies            0
+       NUM:q25:num_devices  3.37229e-06
+ NUM:q25:num_immunizations  1.85476e-05
+   NUM:q25:num_medications  8.43072e-06
+    NUM:q25:num_procedures  0.000116344
+      NUM:q25:obesity_flag            0
+       NUM:q25:stroke_flag            0
+               NUM:q50:AGE  0.000402809
+       NUM:q50:asthma_flag            0
+   NUM:q50:depression_flag            0
+   NUM:q50:encounter_count  0.000329571
+          NUM:q50:mean_bmi  0.000140962
+ NUM:q50:mean_diastolic_bp  0.000725971
+  NUM:q50:mean_systolic_bp            0
+       NUM:q50:mean_weight -0.000302642
+     NUM:q50:num_allergies            0
+       NUM:q50:num_devices   3.6619e-05
+ NUM:q50:num_immunizations  0.000119012
+   NUM:q50:num_medications  0.000109857
+    NUM:q50:num_procedures    0.0010528
+      NUM:q50:obesity_flag            0
+       NUM:q50:stroke_flag            0
+               NUM:q75:AGE   0.00584795
+       NUM:q75:asthma_flag            0
+   NUM:q75:depression_flag            0
+   NUM:q75:encounter_count            0
+          NUM:q75:mean_bmi   0.00173977
+ NUM:q75:mean_diastolic_bp  0.000701754
+  NUM:q75:mean_systolic_bp            0
+       NUM:q75:mean_weight  5.84795e-05
+     NUM:q75:num_allergies   0.00584795
+       NUM:q75:num_devices            0
+ NUM:q75:num_immunizations            0
+   NUM:q75:num_medications   0.00584795
+    NUM:q75:num_procedures            0
+      NUM:q75:obesity_flag            0
+       NUM:q75:stroke_flag            0
+               NUM:std:AGE  -0.00297498
+       NUM:std:asthma_flag -0.000638566
+   NUM:std:depression_flag            0
+   NUM:std:encounter_count -0.000522774
+          NUM:std:mean_bmi -0.000640581
+ NUM:std:mean_diastolic_bp -0.000237436
+  NUM:std:mean_systolic_bp  -0.00061579
+       NUM:std:mean_weight -0.000942132
+     NUM:std:num_allergies  -0.00120887
+       NUM:std:num_devices -0.000676313
+ NUM:std:num_immunizations -0.000306222
+   NUM:std:num_medications -0.000324043
+    NUM:std:num_procedures            0
+      NUM:std:obesity_flag  -0.00103596
+       NUM:std:stroke_flag  -0.00098528
+
+=== DIFF: Correlation (-1..1) ===
+                                    term   value_diff
+                    CORR:AGE|asthma_flag  -0.00380599
+                CORR:AGE|depression_flag   -0.0721447
+                CORR:AGE|encounter_count   -0.0032587
+                       CORR:AGE|mean_bmi  -0.00130057
+              CORR:AGE|mean_diastolic_bp   0.00277799
+               CORR:AGE|mean_systolic_bp -0.000427871
+                    CORR:AGE|mean_weight   0.00139046
+                  CORR:AGE|num_allergies   0.00751617
+                    CORR:AGE|num_devices   -0.0151886
+              CORR:AGE|num_immunizations    0.0116382
+                CORR:AGE|num_medications  -0.00388508
+                 CORR:AGE|num_procedures  -0.00432282
+                   CORR:AGE|obesity_flag    -0.127426
+                    CORR:AGE|stroke_flag    -0.120693
+        CORR:asthma_flag|depression_flag     0.010487
+               CORR:asthma_flag|mean_bmi   -0.0125757
+      CORR:asthma_flag|mean_diastolic_bp   0.00344206
+       CORR:asthma_flag|mean_systolic_bp    0.0197213
+            CORR:asthma_flag|mean_weight   0.00517444
+           CORR:asthma_flag|obesity_flag    0.0086761
+            CORR:asthma_flag|stroke_flag  -0.00843129
+           CORR:depression_flag|mean_bmi    0.0416757
+  CORR:depression_flag|mean_diastolic_bp  -0.00568495
+   CORR:depression_flag|mean_systolic_bp   0.00839236
+        CORR:depression_flag|mean_weight   -0.0561303
+        CORR:encounter_count|asthma_flag    -0.031384
+    CORR:encounter_count|depression_flag   -0.0642088
+           CORR:encounter_count|mean_bmi -0.000775949
+  CORR:encounter_count|mean_diastolic_bp    0.0038629
+   CORR:encounter_count|mean_systolic_bp -0.000506392
+        CORR:encounter_count|mean_weight  0.000180773
+      CORR:encounter_count|num_allergies  0.000378355
+        CORR:encounter_count|num_devices  -0.00971454
+  CORR:encounter_count|num_immunizations   0.00175613
+    CORR:encounter_count|num_medications -0.000258649
+     CORR:encounter_count|num_procedures -0.000449893
+       CORR:encounter_count|obesity_flag   -0.0390603
+        CORR:encounter_count|stroke_flag   -0.0601066
+               CORR:mean_bmi|mean_weight   0.00222472
+         CORR:mean_diastolic_bp|mean_bmi -0.000259299
+      CORR:mean_diastolic_bp|mean_weight -0.000744171
+          CORR:mean_systolic_bp|mean_bmi   0.00151191
+ CORR:mean_systolic_bp|mean_diastolic_bp  -0.00839201
+       CORR:mean_systolic_bp|mean_weight -0.000872165
+          CORR:num_allergies|asthma_flag    -0.130656
+      CORR:num_allergies|depression_flag    0.0142343
+             CORR:num_allergies|mean_bmi  -0.00414475
+    CORR:num_allergies|mean_diastolic_bp -0.000431921
+     CORR:num_allergies|mean_systolic_bp  -0.00278351
+          CORR:num_allergies|mean_weight   0.00446438
+          CORR:num_allergies|num_devices   0.00541013
+         CORR:num_allergies|obesity_flag    0.0189424
+          CORR:num_allergies|stroke_flag    0.0189767
+            CORR:num_devices|asthma_flag   -0.0412395
+        CORR:num_devices|depression_flag   -0.0769435
+               CORR:num_devices|mean_bmi  0.000232338
+      CORR:num_devices|mean_diastolic_bp  0.000423021
+       CORR:num_devices|mean_systolic_bp -0.000484713
+            CORR:num_devices|mean_weight  -0.00757045
+           CORR:num_devices|obesity_flag   -0.0598063
+            CORR:num_devices|stroke_flag   -0.0930664
+      CORR:num_immunizations|asthma_flag   -0.0398521
+  CORR:num_immunizations|depression_flag     0.039297
+         CORR:num_immunizations|mean_bmi   -0.0065383
+CORR:num_immunizations|mean_diastolic_bp   0.00186199
+ CORR:num_immunizations|mean_systolic_bp   0.00307452
+      CORR:num_immunizations|mean_weight     0.015993
+    CORR:num_immunizations|num_allergies  -0.00784668
+      CORR:num_immunizations|num_devices     0.010301
+     CORR:num_immunizations|obesity_flag    0.0746383
+      CORR:num_immunizations|stroke_flag    0.0286458
+        CORR:num_medications|asthma_flag   -0.0450514
+    CORR:num_medications|depression_flag   -0.0508192
+           CORR:num_medications|mean_bmi -0.000544477
+  CORR:num_medications|mean_diastolic_bp   0.00300188
+   CORR:num_medications|mean_systolic_bp -0.000314166
+        CORR:num_medications|mean_weight -0.000216944
+      CORR:num_medications|num_allergies   0.00406405
+        CORR:num_medications|num_devices   -0.0114607
+  CORR:num_medications|num_immunizations   0.00131939
+       CORR:num_medications|obesity_flag   -0.0332223
+        CORR:num_medications|stroke_flag   -0.0664493
+         CORR:num_procedures|asthma_flag   -0.0387683
+     CORR:num_procedures|depression_flag    -0.065383
+            CORR:num_procedures|mean_bmi   -0.0010324
+   CORR:num_procedures|mean_diastolic_bp   0.00339677
+    CORR:num_procedures|mean_systolic_bp -0.000888819
+         CORR:num_procedures|mean_weight -0.000412865
+       CORR:num_procedures|num_allergies   0.00432657
+         CORR:num_procedures|num_devices   -0.0126743
+   CORR:num_procedures|num_immunizations   0.00414753
+     CORR:num_procedures|num_medications -0.000113485
+        CORR:num_procedures|obesity_flag   -0.0475162
+         CORR:num_procedures|stroke_flag   -0.0803724
+       CORR:obesity_flag|depression_flag   -0.0654335
+              CORR:obesity_flag|mean_bmi    0.0366539
+     CORR:obesity_flag|mean_diastolic_bp   0.00608174
+      CORR:obesity_flag|mean_systolic_bp    0.0064641
+           CORR:obesity_flag|mean_weight    -0.129508
+        CORR:stroke_flag|depression_flag   -0.0533527
+               CORR:stroke_flag|mean_bmi     0.045956
+      CORR:stroke_flag|mean_diastolic_bp  -0.00709496
+       CORR:stroke_flag|mean_systolic_bp   0.00514755
+            CORR:stroke_flag|mean_weight   -0.0760749
+           CORR:stroke_flag|obesity_flag    -0.161859
+stats_diff max_abs: 0.16185934016176462
+AUC (file1): 0.796179
+AUC (file2): 0.634857
+AUC_DIFF   : -0.161322
+
+=== Logistic regression DIFF (file2 - file1) — const excluded; values are differences ===
+                 term         coef     p_value      OR_norm  CI_low_norm  CI_high_norm     VIF_norm
+                  AGE  -0.00616998  0.00546553  -0.00308491  -0.00265414   -0.00351562   -0.0467162
+   ETHNICITY_hispanic            0           0            0            0             0            0
+ETHNICITY_nonhispanic     0.151052   -0.157167     0.075961     0.100264     0.0497362 -0.000438555
+             GENDER_M     0.155762    0.794675    0.0779814    0.0901439      0.064506   -0.0398205
+           RACE_black   -0.0570476    0.196706   -0.0284267    0.0145292    -0.0670338    0.0252517
+        RACE_hawaiian     0.048374    0.129335    0.0240505    0.0432312    0.00339718    0.0149607
+          RACE_native    0.0558873    0.335237    0.0279254    0.0632865    -0.0102892    0.0185153
+           RACE_other    0.0124324    -0.23953   0.00621451    0.0251057    -0.0126918    0.0151086
+           RACE_white   0.00565789  -0.0747441   0.00282896    0.0164586    -0.0108423    0.0135544
+      depression_flag     0.314706   -0.327958     0.161286     0.285835    0.00929788   -0.0154924
+      encounter_count  1.93303e-05 -0.00194773  9.66512e-06  0.000111237   -9.1907e-05  -0.00180791
+             mean_bmi   0.00141674    0.226044  0.000708371   0.00151462   -9.7933e-05   -0.0081646
+    mean_diastolic_bp  -0.00175161    0.126093   -0.0008758 -0.000123071   -0.00162846  -0.00848825
+     mean_systolic_bp  0.000753515   -0.407185  0.000376757  0.000915236  -0.000161721  -0.00845564
+          mean_weight  -0.00797247    0.171001  -0.00398618  -0.00341514   -0.00455713   -0.0433803
+        num_allergies   -0.0600664 1.61681e-64   -0.0296104   -0.0289564    -0.0302528   -0.0043237
+          num_devices  -0.00672962 0.000669607  -0.00336413  -0.00281152   -0.00391617   -0.0230728
+    num_immunizations   -0.0360247     0.15636   -0.0180084   -0.0160804    -0.0199316   -0.0487763
+      num_medications -0.000432749 0.000267857 -0.000216374 -0.000186364  -0.000246384  -0.00230173
+       num_procedures  0.000191269    0.207787  9.56345e-05   0.00015308   3.81892e-05  -0.00561632
+         obesity_flag     0.183733    0.984206    0.0918778     0.108854      0.072684    -0.191428
+          stroke_flag     0.200238    0.117899      0.09857      0.11486     0.0792482    -0.153703
+LR_asthma_diff max_abs: 0.9842062503471831
+
+=== KW_IND Diff (file2 - file1) — H_norm / p_norm / effect sizes (0–1) ===
+           metric      H_norm  minus_log10_p_norm   epsilon2     eta2_kw   rank_eta2  A_pair_avg  A_pair_sym
+  encounter_count -0.00610503        -0.000461461   -0.00573 -0.00572828 -0.00572828  0.00195056 -0.00390113
+      num_devices  -0.0627795         -0.00335576 -0.0589319  -0.0589142  -0.0589142   0.0257572  -0.0515144
+num_immunizations  -0.0387863         -0.00121375 -0.0364083  -0.0363973  -0.0363973 -0.00528521  -0.0400994
+  num_medications  -0.0113227        -0.000540373 -0.0106277  -0.0106245  -0.0106245  0.00455939 -0.00911878
+   num_procedures  -0.0112277        -0.000380628 -0.0105383  -0.0105351  -0.0105351  0.00207726 -0.00415452
+KW_IND_diff max_abs: 0.06277953458210583
+Ci utility: 52.585910694943635 / 80
+
