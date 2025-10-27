@@ -1,0 +1,31 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Compiled extensions
+*.so
+
+# Environment directories
+.venv/
+venv/
+env/
+
+# Distribution artifacts
+build/
+dist/
+*.egg-info/
+
+# Jupyter artifacts
+.ipynb_checkpoints/
+
+# Editor and OS junk
+.DS_Store
+*.swp
+*.swo
+
+# uv workspace metadata
+.uv/
+
+# Local matplotlib cache for EDA scripts
+eda/.mplconfig/
