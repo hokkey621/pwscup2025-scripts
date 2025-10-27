@@ -1,0 +1,23 @@
+{
+  "max_age": 110,
+  "datasets": [
+    {
+      "dataset": "Ai",
+      "rows_clipped": 113,
+      "before_max": 111.0,
+      "after_max": 110.0,
+      "sample_before_values": [
+        111
+      ]
+    },
+    {
+      "dataset": "Bi",
+      "rows_clipped": 8,
+      "before_max": 111.0,
+      "after_max": 110.0,
+      "sample_before_values": [
+        111
+      ]
+    }
+  ]
+}
