@@ -1,0 +1,10 @@
+{
+  "label": "dp_eps20_balanced",
+  "notes": "epsilon numeric=2.0 / categorical=1.4",
+  "epsilon": 2.0,
+  "epsilon_numeric": 2.0,
+  "epsilon_age": 2.0,
+  "epsilon_float": 2.0,
+  "epsilon_categorical": 1.4,
+  "epsilon_flags": 1.4
+}

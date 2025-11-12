@@ -1,0 +1,10 @@
+{
+  "label": "dp_eps10_moderate",
+  "notes": "epsilon numeric=1.0 / categorical=0.7",
+  "epsilon": 1.0,
+  "epsilon_numeric": 1.0,
+  "epsilon_age": 1.0,
+  "epsilon_float": 1.0,
+  "epsilon_categorical": 0.7,
+  "epsilon_flags": 0.7
+}

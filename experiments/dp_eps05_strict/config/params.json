@@ -1,0 +1,10 @@
+{
+  "label": "dp_eps05_strict",
+  "notes": "epsilon numeric=0.5 / categorical=0.35",
+  "epsilon": 0.5,
+  "epsilon_numeric": 0.5,
+  "epsilon_age": 0.5,
+  "epsilon_float": 0.5,
+  "epsilon_categorical": 0.35,
+  "epsilon_flags": 0.35
+}

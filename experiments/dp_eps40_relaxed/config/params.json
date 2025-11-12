@@ -1,0 +1,10 @@
+{
+  "label": "dp_eps40_relaxed",
+  "notes": "epsilon numeric=4.0 / categorical=2.8",
+  "epsilon": 4.0,
+  "epsilon_numeric": 4.0,
+  "epsilon_age": 4.0,
+  "epsilon_float": 4.0,
+  "epsilon_categorical": 2.8,
+  "epsilon_flags": 2.8
+}

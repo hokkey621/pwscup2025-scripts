@@ -1,0 +1,10 @@
+{
+  "label": "dp_eps80_loose",
+  "notes": "epsilon numeric=8.0 / categorical=5.6",
+  "epsilon": 8.0,
+  "epsilon_numeric": 8.0,
+  "epsilon_age": 8.0,
+  "epsilon_float": 8.0,
+  "epsilon_categorical": 5.6,
+  "epsilon_flags": 5.6
+}
