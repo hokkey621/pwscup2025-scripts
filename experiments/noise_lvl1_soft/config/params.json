@@ -1,0 +1,9 @@
+{
+  "label": "noise_lvl1_soft",
+  "notes": "カテゴリ入替と数値ノイズを極小に抑えた基準実験",
+  "categorical_swap_prob": 0.01,
+  "flag_flip_prob": 0.01,
+  "age_noise_span": 1,
+  "int_noise_scale": 0.3,
+  "float_noise_scale": 0.3
+}

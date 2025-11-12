@@ -1,0 +1,9 @@
+{
+  "label": "noise_lvl2_mild",
+  "notes": "軽めのノイズ: カテゴリ0.02, 数値はscale 0.6/0.7",
+  "categorical_swap_prob": 0.02,
+  "flag_flip_prob": 0.02,
+  "age_noise_span": 2,
+  "int_noise_scale": 0.6,
+  "float_noise_scale": 0.7
+}

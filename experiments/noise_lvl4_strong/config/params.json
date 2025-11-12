@@ -1,0 +1,9 @@
+{
+  "label": "noise_lvl4_strong",
+  "notes": "匿名性寄りの強めノイズ: カテゴリ0.07, 数値scale1.5/1.6",
+  "categorical_swap_prob": 0.07,
+  "flag_flip_prob": 0.07,
+  "age_noise_span": 4,
+  "int_noise_scale": 1.5,
+  "float_noise_scale": 1.6
+}

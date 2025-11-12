@@ -1,0 +1,9 @@
+{
+  "label": "noise_lvl3_balanced",
+  "notes": "匿名性重視と有用性のバランスを狙った設定",
+  "categorical_swap_prob": 0.04,
+  "flag_flip_prob": 0.04,
+  "age_noise_span": 3,
+  "int_noise_scale": 1.0,
+  "float_noise_scale": 1.0
+}
