@@ -29,3 +29,6 @@ dist/
 
 # Local matplotlib cache for EDA scripts
 eda/.mplconfig/
+
+# Experiment run artifacts
+**/outputs/
