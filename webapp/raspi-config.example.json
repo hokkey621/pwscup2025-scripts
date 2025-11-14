@@ -1,0 +1,15 @@
+{
+  "mode": "remote",
+  "remote": {
+    "host": "rp1.local",
+    "user": "raspi2",
+    "repo_path": "/home/raspi2/workspace/pwscup2025-scripts",
+    "port": 22,
+    "identity_file": "~/.ssh/id_rp1",
+    "ssh_common_args": ["-o", "StrictHostKeyChecking=no"],
+    "uv_bin": "uv",
+    "remote_cache_dir": "/home/raspi2/workspace/pwscup2025-scripts/webapp/outputs/.uv-cache",
+    "jobs_dir": "webapp/remote_jobs",
+    "result_filename": "result.json"
+  }
+}

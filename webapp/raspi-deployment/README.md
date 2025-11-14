@@ -143,6 +143,19 @@ print(evaluation)
 PY
 ```
 
+## リモート評価設定手順
+1. Pi5 側の `webapp/` 直下で `cp webapp/raspi-config.example.json webapp/raspi-config.json` を実行し、以下を編集します。
+   - `host`, `user`, `repo_path`: Pi4 の SSH 接続情報とリポジトリパス
+   - `identity_file`, `ssh_common_args`: 任意の鍵ファイルや SSH オプション
+   - `remote_cache_dir`, `jobs_dir`: Pi4 上で `uv run` が使用するキャッシュ／ジョブ格納先
+2. Pi4 では `uv sync` 済みのリポジトリを `repo_path` に配置し、`webapp/remote_jobs/` ディレクトリを作成しておきます。
+3. Pi5 上で Streamlit から評価ボタンを押すと、`webapp/evaluate.py` が `bi_prime.csv` / `ci_result.csv` をコピーし、以下を自動実行します。
+   ```bash
+   ssh <user>@<host> "cd <repo_path> && UV_CACHE_DIR=<...> uv run python -m webapp.raspi_worker --inputs webapp/remote_jobs/<job>/inputs --outputs webapp/remote_jobs/<job>/outputs"
+   ```
+4. `webapp/raspi_worker.py` は Pi4 上で評価を完了させ、JSON ログを `outputs` ディレクトリへ書き出します。Pi5 が JSON を取得して `EvaluationResult` に復元し、Streamlit に即時反映します。
+5. `webapp/raspi-config.json` を削除する、または `mode` を `local` に戻すと Pi5 単体実行に切り替わります。
+
 ## 注意事項
 - `UV_CACHE_DIR` は常に `webapp/outputs/.uv-cache` を指定し、書き込み権限エラーを防止する。
 - 評価失敗時はラズパイ2側の `webapp/outputs/logs/` と MIA 生成物を確認し、Bi′/Ci が 10,000 行・列順一致か、`check_and_fix_csv.py` が正常終了しているかをチェックする。

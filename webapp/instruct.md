@@ -32,6 +32,7 @@
 3.  **Bi'（評価対象Bi）:** 「ベースBi」に「新規入力データ」を**動的に結合（Concat）**したもの。
 4.  **Ci（評価対象Ci）:** 「Bi'」を「FR-4」で指定されたアルゴリズムで加工したもの。
 5.  **PWS CUP 評価データ:** `template` 配下のスクリプト群が利用するデータ（`data/HI_100K.csv` (Ai), `data/HI_ans.csv` (ans)）を、`evaluate.py`から`subprocess`経由で参照する。
+6.  **ラズパイ連携設定:** `webapp/raspi-config.json` の `mode` を `remote` にすると Bi'/Ci を Pi4 へSCP転送し、`webapp/raspi_worker.py` が評価を実行して結果JSONを返す。未設定または `local` の場合はPi5単体で評価を行う。
 
 ## 4. 機能要件
 

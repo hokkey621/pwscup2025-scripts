@@ -75,6 +75,12 @@ uv run streamlit run webapp/app.py
 - **攻撃成功件数が極端に大きい / 小さい**  
   → 本アプリはデモ用です。スコアより「フローが回ること」を重視している旨を利用者に伝えてください。
 
+## Raspberry Pi 2台構成で評価をオフロードする
+- `webapp/raspi-config.example.json` をコピーして `webapp/raspi-config.json` を作成し、Pi4 (評価専用) の `host`, `user`, `repo_path`, `uv_bin`, `remote_cache_dir` などを記入します。`ssh_common_args` や `identity_file` で鍵や `StrictHostKeyChecking` の設定も可能です。
+- Pi4 には本リポジトリを同じパスに配置し、`uv sync` 済みであることを前提とします。Pi5 から評価を実行すると `webapp/evaluate.py` が自動で `bi_prime.csv` / `ci_result.csv` を SCP で転送し、`uv run python -m webapp.raspi_worker ...` をリモート実行してスコアを取得します。
+- `webapp/raspi_worker.py` は受け取った CSV から `run_evaluation(..., mode="local")` を呼び出し、結果 JSON を `webapp/remote_jobs/<job_id>/outputs/` に書き出します。Pi5 側では JSON/ログを取得して Streamlit に反映し、`webapp/outputs/metrics/latest.json` も更新します。
+- `raspi-config.json` を削除するか `mode` を `local` に変更すると、従来通り Pi5 上で評価が実行されます。
+
 ## 参考コマンド
 - 事前検証として CLI から匿名化〜評価を一括で実行する場合:
   ```bash
