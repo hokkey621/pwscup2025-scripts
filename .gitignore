@@ -32,3 +32,4 @@ eda/.mplconfig/
 
 # Experiment run artifacts
 **/outputs/
+webapp/raspi-config.json
