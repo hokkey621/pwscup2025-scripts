@@ -100,6 +100,8 @@ Host rp3
 - アルゴリズム選択 `st.radio` ：
   - `naive` = アルゴリズムA (ナイーブ加工: Bi′コピー)
   - `main` = アルゴリズムB (非バイナリ数値列へノイズ付与)
+  - `k_anonymity` = アルゴリズムC (k=2 のマイクロアグリゲーション; `experiments/method_k_anonymity_k02` の最良設定)
+  - `t_outlier_kmeans` = アルゴリズムD (t分布で外れ値抽出→k-means置換; tail_ratio=0.05, max_clusters=3)
 - 実行ボタン:
   - `[ 1. 匿名化実行 ]`（選択アルゴリズムのみ）
   - `[ 1. 全手法で匿名化 ]`（登録済み全アルゴリズムを一括実行）
