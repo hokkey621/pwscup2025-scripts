@@ -30,6 +30,8 @@ uv run streamlit run webapp/app.py
 - アルゴリズム選択 `st.radio`
   - アルゴリズムA：そのままコピー（ナイーブ加工）
   - アルゴリズムB：ノイズ注入（本命加工）
+  - アルゴリズムC：k匿名化（k=2。`experiments/method_k_anonymity_k02` で最良だった設定）
+  - アルゴリズムD：t分布×k-means 外れ値置換（tail_ratio=0.05, max_clusters=3）
 - 実行ボタン
   - `[ 1. 匿名化実行 ]` … 選択中のアルゴリズムのみ走らせる
   - `[ 1. 全手法で匿名化 ]` … 登録済み全アルゴリズムを一括実行し、Run履歴として保存
