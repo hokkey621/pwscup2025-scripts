@@ -10,6 +10,7 @@ import json
 
 import numpy as np
 import pandas as pd
+import polars as pl
 from pandas.api import types as pdt
 from scipy import stats as scipy_stats
 from sklearn.cluster import KMeans
@@ -266,9 +267,10 @@ class TOutlierKMeansAnonymizer:
 
 
 def load_base_bi(path: str | Path = DEFAULT_BI_PATH) -> pd.DataFrame:
-    """Biの参照CSVを読み込む。"""
+    """Biの参照CSVをpolarsで読み込み、先頭1000行のみ扱う。"""
 
-    df = pd.read_csv(path)
+    pl_df = pl.read_csv(path, n_rows=1000)
+    df = pl_df.to_pandas()
     df.columns = df.columns.str.strip()
     return df
 

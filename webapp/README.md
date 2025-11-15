@@ -13,6 +13,8 @@ uv python install 3.12.11   # 必要な場合のみ
 uv sync                     # 依存パッケージの取得
 ```
 
+- デモ高速化のため、Biの読み込み (`webapp/anonymize.load_base_bi`) は Polars を使用し、先頭1000行のみを対象にしています。評価実行時には自動的に既存行を複製して10,000行のフォーマット要件に合わせます（`util/pws_data_format.py` が要求する行数を満たすため）。公式CSVの全行が必要な分析は別スクリプトで実行してください。
+
 ## 起動方法
 ```bash
 UV_CACHE_DIR=webapp/outputs/.uv-cache \

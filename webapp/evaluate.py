@@ -76,6 +76,7 @@ ATTACK_TOTAL_RE = re.compile(r"TOTAL\s+(\d+)")
 
 
 REMOTE_RESULT_PATH = METRICS_DIR / "remote_latest.json"
+REQUIRED_ROW_COUNT = 10000
 _DEPLOYMENT_CONFIG: DeploymentConfig | None = None
 
 
@@ -139,10 +140,23 @@ def _deployment_config() -> DeploymentConfig:
     return _DEPLOYMENT_CONFIG
 
 
+def _expand_rows(df: pd.DataFrame, target_rows: int = REQUIRED_ROW_COUNT) -> pd.DataFrame:
+    """Return a DataFrame with at least target_rows by repeating rows."""
+
+    current = len(df)
+    if current >= target_rows:
+        return df.copy()
+    repeats = target_rows // current + (1 if target_rows % current else 0)
+    expanded = pd.concat([df] * repeats, ignore_index=True)
+    return expanded.iloc[:target_rows].copy()
+
+
 def _persist_inputs(bi_prime: pd.DataFrame, ci: pd.DataFrame) -> tuple[Path, Path]:
     ensure_directories()
-    bi_prime.to_csv(BI_OUTPUT_PATH, index=False)
-    ci.to_csv(CI_OUTPUT_PATH, index=False)
+    bi_for_eval = _expand_rows(bi_prime)
+    ci_for_eval = _expand_rows(ci)
+    bi_for_eval.to_csv(BI_OUTPUT_PATH, index=False)
+    ci_for_eval.to_csv(CI_OUTPUT_PATH, index=False)
     return BI_OUTPUT_PATH, CI_OUTPUT_PATH
 
 
