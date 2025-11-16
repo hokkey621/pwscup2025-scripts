@@ -1,0 +1,56 @@
+[
+  {
+    "method": "t-outlier",
+    "param": "tail 1%",
+    "val_acc": 0.894,
+    "attack_total": 9437
+  },
+  {
+    "method": "t-outlier",
+    "param": "tail 5%",
+    "val_acc": 0.899,
+    "attack_total": 9353
+  },
+  {
+    "method": "t-outlier",
+    "param": "tail 10%",
+    "val_acc": 0.896,
+    "attack_total": 9439
+  },
+  {
+    "method": "noise",
+    "param": "1%",
+    "val_acc": 0.875,
+    "attack_total": 8897
+  },
+  {
+    "method": "noise",
+    "param": "4%",
+    "val_acc": 0.828,
+    "attack_total": 7307
+  },
+  {
+    "method": "noise",
+    "param": "10%",
+    "val_acc": 0.765,
+    "attack_total": 3177
+  },
+  {
+    "method": "k-anon",
+    "param": "k=2",
+    "val_acc": 0.991,
+    "attack_total": 6850
+  },
+  {
+    "method": "k-anon",
+    "param": "k=5",
+    "val_acc": 0.99,
+    "attack_total": 6900
+  },
+  {
+    "method": "k-anon",
+    "param": "k=8",
+    "val_acc": 0.99,
+    "attack_total": 6880
+  }
+]

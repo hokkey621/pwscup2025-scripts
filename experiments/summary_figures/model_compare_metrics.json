@@ -1,0 +1,38 @@
+{
+  "t-outlier tail 1%": {
+    "usefulness": 76.999,
+    "attack": 9437
+  },
+  "t-outlier tail 5%": {
+    "usefulness": 77.843,
+    "attack": 9353
+  },
+  "t-outlier tail10%": {
+    "usefulness": 72.095,
+    "attack": 9439
+  },
+  "noise swap 1%": {
+    "usefulness": 67.18,
+    "attack": 8897
+  },
+  "noise swap 4%": {
+    "usefulness": 58.48,
+    "attack": 7307
+  },
+  "noise swap10%": {
+    "usefulness": 51.89,
+    "attack": 3177
+  },
+  "k-anon k=2": {
+    "usefulness": 46.61,
+    "attack": 6950
+  },
+  "k-anon k=5": {
+    "usefulness": 42.05,
+    "attack": 6900
+  },
+  "k-anon k=8": {
+    "usefulness": 41.17,
+    "attack": 6880
+  }
+}
